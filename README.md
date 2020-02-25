@@ -1,6 +1,7 @@
 # MeanCourseUi
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.24.
+https://www.udemy.com/course/angular-2-and-nodejs-the-practical-guide/learn/lecture/13914132#content
 
 ## Development server
 
