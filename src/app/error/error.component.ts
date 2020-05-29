@@ -1,3 +1,4 @@
+// to create a global error component for the app
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material';
 

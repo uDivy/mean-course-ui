@@ -19,6 +19,7 @@ export class PostsService {
 
   constructor(private http: HttpClient, private router : Router) { }
 
+  // fetching all the posts
   getPosts(postsPerPage: number, currentPage: number){
     const queryParams = `?pagesize=${postsPerPage}&page=${currentPage}`;
     this.http.get<{ message: string, posts: any, maxPosts : number }>(BACKEND_URL+queryParams).pipe(
@@ -47,10 +48,12 @@ export class PostsService {
     );
   }
 
+  // to fetch the subject created
   getPostUpdateListener() {
     return this.postUpdated.asObservable();
   }
 
+  // to fetch the post by id
   getPost(id: string){
     // console.log(this.posts)
     return this.http.get<{
@@ -62,6 +65,7 @@ export class PostsService {
     }>(BACKEND_URL+id);
   }
 
+  // to add a new post
   addPost(title: string, Content: string, image: File){
     const postData = new FormData();
     postData.append("title",title);
@@ -75,6 +79,7 @@ export class PostsService {
     );
   }
 
+  // to update a old post
   updatePost(id: string, title: string, Content: string, image: File | string) {
     let postData: Post | FormData;
     if (typeof(image) == 'object'){
@@ -100,6 +105,7 @@ export class PostsService {
     );
   }
 
+  // to delete the post
   deletePost(postId: string) {
     return this.http.delete(BACKEND_URL + postId);
   }
